@@ -1,0 +1,27 @@
+From d9097397836d0559333e59c3184875c426141c67 Mon Sep 17 00:00:00 2001
+From: William Blew <william@kulian.org>
+Date: Wed, 29 Mar 2023 19:33:46 -0700
+Subject: [PATCH] package/unbound: configure --enable-subnet
+
+Configure package/unbound to enable EDNS Client Subnet support
+
+Signed-off-by: William Blew <william@kulian.org>
+---
+ package/unbound/unbound.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/package/unbound/unbound.mk b/package/unbound/unbound.mk
+index d9be6392..ed5de590 100644
+--- a/package/unbound/unbound.mk
++++ b/package/unbound/unbound.mk
+@@ -16,6 +16,7 @@ UNBOUND_CONF_OPTS = \
+ 	--with-conf-file=/etc/unbound/unbound.conf \
+ 	--with-pidfile=/var/run/unbound.pid \
+ 	--with-rootkey-file=/etc/unbound/root.key \
++	--enable-subnet \
+ 	--enable-tfo-server \
+ 	--with-libevent=$(STAGING_DIR)/usr \
+ 	--with-libexpat=$(STAGING_DIR)/usr \
+-- 
+2.37.5
+
