@@ -1,4 +1,8 @@
-target "default" {
+group "default" {
+  targets = ["unbound"]
+}
+
+target "unbound" {
   context = "./"
   dockerfile = "Dockerfile"
   platforms = [
