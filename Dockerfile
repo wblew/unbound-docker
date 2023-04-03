@@ -1,9 +1,12 @@
 #syntax=docker/dockerfile:1.2
 
-# platform set by buildkit (DOCKER_BUILDKIT=1)
-FROM --platform=$BUILDPLATFORM buildroot/base:20211120.1925 AS buildroot-base
+# https://buildroot.org
+# https://gitlab.com/buildroot.org/buildroot/-/commits/2023.02
 
-ARG BR_VERSION=2022.02.8
+# platform set by buildkit (DOCKER_BUILDKIT=1)
+FROM --platform=$BUILDPLATFORM registry.gitlab.com/buildroot.org/buildroot/base:20230207.1123 AS buildroot-base
+
+ARG BR_VERSION=2023.02
 
 RUN git clone --depth 1 --branch ${BR_VERSION} https://git.busybox.net/buildroot
 
